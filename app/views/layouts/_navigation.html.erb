@@ -1,0 +1,48 @@
+<%= link_to "Brilliant", root_path, :class => 'brand' %>
+
+
+<ul>
+  <div class="btn-group">
+    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+    Portfolio
+      <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    <!-- dropdown menu links -->
+      <li><%= link_to 'Portraits', pages_portraits_path %></li>
+      <li><%= link_to 'Kids', pages_kids_path %></li>
+      <li><%= link_to 'Travel', pages_travel_path %>></li>
+    </ul>
+   </div>   
+</ul>
+
+      <% if user_signed_in? %>
+    <li>
+    <%= link_to 'Logout', destroy_user_session_path, :method=>'delete' %>
+    </li>
+  <% else %>
+    <li>
+    <%= link_to 'Login', new_user_session_path %>
+    </li>
+  <% end %>
+  <% if user_signed_in? %>
+    <li>
+    <%= link_to 'Edit account', edit_user_registration_path %>
+    </li>
+    <% if current_user.has_role? :admin %>
+      <li>
+      <%= link_to 'Admin', users_path %>
+      </li>
+    <% end %>
+  <% else %>
+    <li>
+    <%= link_to 'Sign up', new_user_registration_path %>
+    </li>
+  <% end %>
+    </ul>
+    </div>
+  
+  
+  
+    
+</ul>
