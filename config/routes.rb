@@ -1,4 +1,7 @@
 Brilliant::Application.routes.draw do
+  resources :photos
+
+
   get "pages/portfolio"
 
   get "pages/portraits"
