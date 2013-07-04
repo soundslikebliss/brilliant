@@ -1,10 +1,11 @@
-<%= simple_form_for(@photo) do |f| %>
+<%= simple_form_for(@photo, html: { class: "form-horizontal"}) do |f| %>
   <%= f.error_notification %>
+  <%= f.full_error :image_file_size, class: "alert alert-error" %>
+  <%= f.full_error :image_content_type, class: "alert alert-error" %>
 
-  <div class="form-inputs">
-  </div>
+  <%= f.input :image, label: "Upload an image" %>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
